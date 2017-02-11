@@ -1,8 +1,9 @@
 package com.technologx.bluerain;
 
-import android.content.Context;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -11,11 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.joaquimley.faboptions.FabOptions;
-import com.technologx.bluerain.R.id.toolbar;
+import com.technologx.bluerain.fragments.KustomFragment;
+
+import static com.technologx.bluerain.R.id.toolbar;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar Toolbar;
+    private static final int CONTENT_VIEW_ID = 10101010;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.faboptions_kustom:
-                Intent kustom = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(kustom);
+                Fragment newFragment = new KustomFragment();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.add(CONTENT_VIEW_ID, newFragment).commit();
                 break;
 
 
