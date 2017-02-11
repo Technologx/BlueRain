@@ -1,0 +1,55 @@
+package com.technologx.bluerain.holders;
+
+import android.content.Context;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.technologx.bluerain.R;
+import com.technologx.bluerain.utilities.IconUtils;
+import com.technologx.bluerain.utilities.Utils;
+import com.technologx.bluerain.views.DebouncedClickListener;
+
+;
+
+public class ZooperButtonHolder extends RecyclerView.ViewHolder {
+
+    private final ImageView icon;
+    private final TextView text;
+    private int buttonId = -1;
+    private final OnZooperButtonClickListener listener;
+
+    public ZooperButtonHolder(View itemView, OnZooperButtonClickListener nListener) {
+        super(itemView);
+        CardView card = (CardView) itemView.findViewById(R.id.zooper_btn_card);
+        icon = (ImageView) itemView.findViewById(R.id.zooper_btn_icon);
+        text = (TextView) itemView.findViewById(R.id.zooper_btn_title);
+        listener = nListener;
+        if (card != null)
+            card.setOnClickListener(new DebouncedClickListener() {
+                @Override
+                public void onDebouncedClick(View v) {
+                    if (listener != null)
+                        listener.onClick(buttonId);
+                }
+            });
+    }
+
+    public void setItem(Context context, int id) {
+        buttonId = id;
+        if (id < 0 || id > 1) return;
+        if (icon != null)
+            icon.setImageDrawable(IconUtils.getTintedDrawable(context, id == 0 ?
+                    "ic_store_download" : "ic_assets"));
+        if (text != null)
+            text.setText(Utils.getStringFromResources(context, id == 0 ? R.string.install_apps : R
+                    .string.install_assets));
+    }
+
+    public interface OnZooperButtonClickListener {
+        void onClick(int position);
+    }
+
+}

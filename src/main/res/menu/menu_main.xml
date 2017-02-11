@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.technologx.bluerain.activities.MainActivity">
+    <item
+        android:id="@+id/faboptions_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/faboptions_kustom"
+        android:icon="@drawable/ic_kustom"
+        android:title="Kustom" />
+
+    <item
+        android:id="@+id/faboptions_zooper"
+        android:icon="@drawable/ic_zooper"
+        android:title="Zooper" />
+
+    <item
+        android:id="@+id/faboptions_rateapp"
+        android:icon="@drawable/ic_rateapp"
+        android:title="Rate &amp; Review" />
+
+</menu>
