@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BlueRain</string>
+
+    <!-- Tell your viewers what your pack is about & what to expect when they use it! -->
+    <string name="app_info">
+        "BlueRain &amp; what it's about\n\n"
+        "BlueRain is a material widget dashboard created for all the widget creators out there.\n\n"
+        "So no more having to use a icon pack dashboard just to get your widgets published to the playstore or something that\'s outdated.\n\n"
+        "This dashboard makes it easy for you to get your widgets out there or your weather icons!"
+    </string>
+    <string name="settings">Settings</string>
+    <string name="widgetpack_author_name">Ghost Ninja(Technologx)</string>
+    <string name="widget_info">Some cool widgets I created!</string>
+
+
+</resources>

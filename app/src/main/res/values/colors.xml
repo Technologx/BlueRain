@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f729b</color>
+    <color name="colorPrimaryDark">#39678c</color>
+    <color name="colorAccent">#89c507</color>
+    <color name="colorBackground">#455a64</color>
+
+    <color name="statusbar">#78909c</color>
+
+    <!-- Fab elements -->
+    <color name="fabOptionsBackgroundColor">#707070</color>
+    <color name="fabOptionsFabColor">#5674b9</color>
+</resources>

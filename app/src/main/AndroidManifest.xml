@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.technologx.bluerain">
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"/>
+
+    <application
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,UnusedAttribute">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.WallpaperViewerActivity"
+            android:label="@string/wallpapers"
+            android:theme="@style/AppTheme"/>
+
+        <service
+            android:name=".services.MuzeiArtSourceService"
+            android:description="@string/artsource_desc"
+            android:icon="@mipmap/ic_muzei_logo"
+            android:label="@string/artsource_name"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.android.apps.muzei.api.MuzeiArtSource"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="color"
+                android:value="@color/colorPrimary"/>
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".activities.MuzeiSettings"/>
+        </service>
+
+        <activity
+            android:name=".activities.MuzeiSettings"
+            android:exported="true"
+            android:label="@string/settings"
+            android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>

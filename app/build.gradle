@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+ext {
+    TARGET_SDK = 25
+    BUILD_TOOLS = "25.0.2"
+    ANDROID_SUPPORT_LIBS = "25.1.1"
+    APP_TAG = "BlueRain Sample"
+}
+
+android {
+    compileSdkVersion TARGET_SDK
+    buildToolsVersion BUILD_TOOLS
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(output.outputFile.parent,
+                    "${APP_TAG}-v${variant.versionName}.apk")
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
+    }
+
+    defaultConfig {
+        applicationId "com.technologx.bluerain"
+        minSdkVersion 16
+        targetSdkVersion TARGET_SDK
+        versionCode 100
+        versionName "1.0.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:design:25.1.1'
+
+    compile 'com.github.joaquimley:faboptions:1.1.2'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.afollestad:sectioned-recyclerview:0.2.3'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.google.android.apps.muzei:muzei-api:2.0'
+    compile 'com.afollestad:sectioned-recyclerview:0.2.3'
+    compile 'com.afollestad.material-dialogs:core:0.9.2.3'
+    compile 'com.jakewharton.timber:timber:4.5.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+}
